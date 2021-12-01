@@ -6,17 +6,9 @@ public class Problem2 {
     private static final int WINDOW_SIZE = 3;
 
     private static int getResult(int[] nums) {
-        int sumOfCurrentWindow = 0;
-        for (int i = 0; i < WINDOW_SIZE; ++i) {
-            sumOfCurrentWindow += nums[i];
-        }
-
         int countIncreased = 0;
-        int sumOfPreviousWindow;
         for (int i = WINDOW_SIZE; i < nums.length; ++i) {
-            sumOfPreviousWindow = sumOfCurrentWindow;
-            sumOfCurrentWindow += nums[i] - nums[i - WINDOW_SIZE];
-            if (sumOfPreviousWindow < sumOfCurrentWindow) {
+            if (nums[i] > nums[i - WINDOW_SIZE]) {
                 ++countIncreased;
             }
         }
