@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Problem1 {
-    private static long getResult(int[] init, int days) {
+    static long getResult(int[] init, int days) {
         Map<Integer, Long> counter = new HashMap<>();
         for (int n : init) {
             counter.putIfAbsent(n, (long) 0);
