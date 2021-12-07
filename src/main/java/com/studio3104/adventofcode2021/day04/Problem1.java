@@ -13,7 +13,7 @@ class Sum {
 }
 
 public class Problem1 {
-    private static List<List<Sum>> calculateSum(Input input) {
+    static List<List<Sum>> calculateSum(Input input) {
         List<List<Sum>> sums = new ArrayList<>();
         for (int[][] board : input.boards) {
             List<Sum> s = IntStream.range(0, 5).mapToObj(n -> new Sum()).collect(Collectors.toList());
@@ -30,15 +30,14 @@ public class Problem1 {
         return sums;
     }
 
-    private static int getResult(int lastNumber, List<Sum> hitSum) {
+    static int getResult(int lastNumber, List<Sum> hitSum) {
         return lastNumber * hitSum.stream().mapToInt(s -> s.horizontal.stream().mapToInt(n -> n).sum()).sum();
     }
 
     static int getResult(Input input) {
         List<List<Sum>> sums = calculateSum(input);
 
-        for (int i = 0; i < input.numbers.length; ++i) {
-            int n = input.numbers[i];
+        for (int n : input.numbers) {
             for (List<Sum> b : sums) {
                 for (Sum s : b) {
                     s.vertical.remove(n);
