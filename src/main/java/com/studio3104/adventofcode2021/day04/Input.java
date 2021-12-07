@@ -18,7 +18,7 @@ class Input {
         boards = new ArrayList<>();
         int[][] board = new int[5][5];
         int bi = 0;
-        for (int i = 1; i < input.length; ++i) {
+        for (int i = 2; i < input.length; ++i) {
             String line = input[i];
             if (line.isBlank()) {
                 boards.add(board);
