@@ -5,7 +5,7 @@ import com.studio3104.adventofcode2021.utilities.InputLoader;
 import java.util.Arrays;
 
 public class Problem1 {
-    static int getResult(String[] input) {
+    private static int getResult(String[] input) {
         int count = 0;
         for (String line : input) {
             count += Arrays.stream(line.split(" \\| ")[1].trim().split(" +"))
