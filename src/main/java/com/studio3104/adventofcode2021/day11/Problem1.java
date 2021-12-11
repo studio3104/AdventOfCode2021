@@ -15,7 +15,7 @@ class Position {
 }
 
 public class Problem1 {
-    private static void increaseEnergy(int[][] octopuses, Position position, Set<Position> flashed, Queue<Position> toIncrease) {
+    static void increaseEnergy(int[][] octopuses, Position position, Set<Position> flashed, Queue<Position> toIncrease) {
         if (flashed.contains(position)) {
             return;
         }
@@ -65,7 +65,7 @@ public class Problem1 {
         return flashedCount;
     }
 
-    public static void main(String[] args) {
+    static int[][] fetchOctopuses() {
         char[][] input = InputLoader.loadCharGrid(11);
         int[][] octopuses = new int[input.length][input[0].length];
         for (int i = 0; i < input.length; ++i) {
@@ -73,6 +73,10 @@ public class Problem1 {
                 octopuses[i][j] = input[i][j] - '0';
             }
         }
-        System.out.println(getResult(octopuses));
+        return octopuses;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(getResult(fetchOctopuses()));
     }
 }
