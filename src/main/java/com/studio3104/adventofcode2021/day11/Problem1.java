@@ -20,23 +20,25 @@ public class Problem1 {
             return;
         }
 
-        if (++octopuses[position.i][position.j] >= 10) {
-            octopuses[position.i][position.j] = 0;
-            flashed.add(position);
+        if (++octopuses[position.i][position.j] < 10) {
+            return;
+        }
 
-            for (int i = position.i - 1; i <= position.i + 1; ++i) {
-                for (int j = position.j - 1; j <= position.j + 1; ++j) {
-                    if (i == position.i && j == position.j) {
-                        continue;
-                    }
-                    if (i < 0 || i >= octopuses.length) {
-                        continue;
-                    }
-                    if (j < 0 || j >= octopuses[0].length) {
-                        continue;
-                    }
-                    toIncrease.add(new Position(i, j));
+        octopuses[position.i][position.j] = 0;
+        flashed.add(position);
+
+        for (int i = position.i - 1; i <= position.i + 1; ++i) {
+            for (int j = position.j - 1; j <= position.j + 1; ++j) {
+                if (i == position.i && j == position.j) {
+                    continue;
                 }
+                if (i < 0 || i >= octopuses.length) {
+                    continue;
+                }
+                if (j < 0 || j >= octopuses[0].length) {
+                    continue;
+                }
+                toIncrease.add(new Position(i, j));
             }
         }
     }
